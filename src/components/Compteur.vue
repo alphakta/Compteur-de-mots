@@ -21,7 +21,7 @@
 
     <div v-for="item, id in listeMots" :key="id" class="listeMot">
       <p>{{ item }}</p>
-      <!-- <a v-on:click="supprimerMot()" class="delete"> Supprimer le mot </a> -->
+      <!-- <a v-on:click="supprimerMot(id)" class="delete"> Supprimer le mot </a> -->
     </div>
   </div>
 </template>
