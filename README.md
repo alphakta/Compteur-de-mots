@@ -1,5 +1,14 @@
 # project_vuejs
 
+Le but de cette exercice était de réaliser un compteur de mot en VueJS :
+
+Les fonctionnalités :
+- un formulaire pour que l’utilisateur puisse entrer son texte
+- un bouton pour valider le texte
+- le résultat du nombre de mots présents dans le texte
+- faire une liste des résultats enregistrer avec un bouton
+- pouvoir supprimer un résultat de la liste
+
 ## Project setup
 ```
 npm install
