@@ -21,7 +21,7 @@
 
     <div v-for="item, id in listeMots" :key="id" class="listeMot">
       <p>{{ item }}</p>
-      <!-- <a v-on:click="supprimerMot()" class="delete"> Supprimer le mot </a> -->
+      <a v-on:click="supprimerMot(id)" class="delete"> Supprimer le mot </a>
     </div>
   </div>
 </template>
@@ -34,17 +34,35 @@ export default {
       texte: "",
       resultatBool: false,
       listeMots: [],
+      tableauValMax: [],
+      compteur: 0,
     };
   },
   methods: {
     calculMot() {
       this.listeMots = this.texte.split(" ");
       this.resultatBool = true;
-      console.log(this.listeMots);
+      console.log("fonction calculerMot()",this.listeMots);
+      console.log("fonction calculerMot()", this.listeMots.length)
+
+
+      // for(var i=0; i<this.listeMots.length; i++){
+      //   console.log(this.listeMots[i])
+
+      //   // for(var i=0;)
+      //   if(this.listeMots[i] == this.listeMots[i+1]){
+      //     this.compteur++
+      //     this.tableauValMax.push(this.listeMots[i])
+      //   }
+
+      // console.log(this.compteur, this.tableauValMax)
+      // }
+    },
+    supprimerMot(id) {
+        console.log("fonction supprimermot", id)
+        this.listeMots.splice(id, 1)      
+      }
     }
-    // supprimerMot() {
-    // }
-  },
 };
 </script>
 
@@ -73,12 +91,13 @@ export default {
   padding: 5px;
   border: 1px solid #000;
 }
-.listeMot {
-  flex-direction: row;
+.listeMot{
+  display: flex;
+  justify-content: center;
 }
 .listeMot p {
   font-size: 16px;
-  margin: 2px 0;
+  margin: 0 5px;
   color: green;
 }
 .listeMot .delete {
