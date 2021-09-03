@@ -1,5 +1,5 @@
 <template>
-  <h1> Pré-Test, Lili.ai</h1>  
+  <h1> Test </h1>  
   <Compteur/>
 </template>
 

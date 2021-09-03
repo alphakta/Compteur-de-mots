@@ -6,22 +6,22 @@
         <label for="msg"> Entrez vos mots :</label>
       </div>
       <div class="item">
-        <textarea v-model="texte" name=""></textarea>
+        <textarea v-model="text" name=""></textarea>
       </div>
       <div class="item">
-        <a v-on:click="calculMot()"> Valider</a>
+        <a v-on:click="calculateNbWords()"> Valider</a>
       </div>
     </form>
 
-    <p v-if="resultatBool == true">
-      Résultat du nombre de mot : {{ listeMots.length }}
+    <p v-if="resultBool == true">
+      Résultat du nombre de mot : {{ listWords.length }}
       <br />
       Avec comme séparateur l'espace
     </p>
 
-    <div v-for="item, id in listeMots" :key="id" class="listeMot">
+    <div v-for="item, id in listWords" :key="id" class="listeMot">
       <p>{{ item }}</p>
-      <a v-on:click="supprimerMot(id)" class="delete"> Supprimer le mot </a>
+      <a v-on:click="deleteWordsList(id)" class="delete"> Supprimer le mot de la liste </a>
     </div>
   </div>
 </template>
@@ -31,19 +31,18 @@ export default {
   name: "Compteur",
   data: function () {
     return {
-      texte: "",
-      resultatBool: false,
-      listeMots: [],
-      tableauValMax: [],
-      compteur: 0,
+      text: "",
+      resultBool: false,
+      listWords: [],
+      // tableauValMax: [],
+      // compteur: 0,
     };
   },
   methods: {
-    calculMot() {
-      this.listeMots = this.texte.split(" ");
-      this.resultatBool = true;
-      console.log("fonction calculerMot()",this.listeMots);
-      console.log("fonction calculerMot()", this.listeMots.length)
+    calculateNbWords() {
+      this.listWords = this.text.split(' ');
+      this.resultBool = true;
+      console.log("fonction calculateNbWords()",this.text.split(' '));
 
 
       // for(var i=0; i<this.listeMots.length; i++){
@@ -58,10 +57,10 @@ export default {
       // console.log(this.compteur, this.tableauValMax)
       // }
     },
-    supprimerMot(id) {
-        console.log("fonction supprimermot", id)
-        this.listeMots.splice(id, 1)      
-      }
+    deleteWordsList(id) {
+        console.log("fonction deleteWordsList", id)
+        this.listWords.splice(id, 1)      
+      },
     }
 };
 </script>
@@ -97,7 +96,7 @@ export default {
 }
 .listeMot p {
   font-size: 16px;
-  margin: 0 5px;
+  margin: 0 20px;
   color: green;
 }
 .listeMot .delete {
